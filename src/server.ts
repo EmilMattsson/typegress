@@ -1,7 +1,7 @@
 import express, { Express, Request, Response, NextFunction, RequestHandler } from 'express'
 import morgan from 'morgan'
 
-import asyncRequestWrapper from '../middleware/asyncRequestWrapper'
+import asyncRequestWrapper from './middleware/asyncRequestWrapper'
 
 const app: Express = express()
 const logger: RequestHandler = morgan('dev')

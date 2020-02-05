@@ -1,21 +1,26 @@
+version: "3.3"
+
 services:
 
-  movie_service:
+  movie-service:
     container_name: movie-service
-    image:
-    depends_on:
-      - "postgres"
+    image: movie-service:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # depends_on:
+    #   - "postgres"
     ports:
-      - 3000:80
+      - 4000:4000
     environment:
       DB_CONNECTION_STRING: "add connection string here"
 
-  postgres:
-    image: postgres:12.1-alpine
-    ports:
-      - 5432:5432
-    restart: always
-    environment:
-      POSTGRES_USER: "movieservice"
-      POSTGRES_PASSWORD: "try_to.guessMYPWD1337"
-      POSTGRES_DB: "MovieServiceDB"
+  # postgres:
+  #   image: postgres:12.1-alpine
+  #   ports:
+  #     - 5432:5432
+  #   restart: always
+  #   environment:
+  #     POSTGRES_USER: "movieservice"
+  #     POSTGRES_PASSWORD: "try_to.guessMYPWD1337"
+  #     POSTGRES_DB: "MovieServiceDB"
